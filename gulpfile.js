@@ -94,7 +94,7 @@ gulp.task('prod-clean', function(cb) {
 
 //move media files to prod folder
 gulp.task('prod-media', function(cb) {
-	return gulp.src('src/media/*.*')
+	return gulp.src('src/media/**/*')
 		.pipe(gulp.dest('prod/media'));
 });
 
