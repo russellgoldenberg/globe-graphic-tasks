@@ -31,7 +31,8 @@ gulp.task('dev-clean', function(cb) {
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
-            baseDir: 'src'
+            baseDir: './',
+            index: 'embed-test.html'
         },
         notify: false,
         ghostMode: false
