@@ -10,6 +10,7 @@ var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var smoosher = require('gulp-smoosher');
 var cmq = require('gulp-combine-media-queries');
+var rename = require('gulp-rename');
 
 /* --------- */
 /* DEV TASKS */
@@ -42,12 +43,13 @@ gulp.task('browser-sync', function() {
 // Sass task, will run when any SCSS files change & BrowserSync
 // will auto-update browsers
 gulp.task('sass', function () {
-    return sass('src/css/main.scss', {
+    return sass('src/css/dev.scss', {
 			style: 'expanded', 
 			compass: true
 		})
 		.on('error', handleErrors)
-		.pipe(autoprefixer(browsers: ['last 2 version'], cascade: false))
+		.pipe(autoprefixer({browsers: ['last 2 version'], cascade: false}))
+		.pipe(rename('main.css'))
 		.pipe(gulp.dest('src/css'))
 		.pipe(browserSync.reload({stream:true}));
 });
@@ -109,13 +111,14 @@ gulp.task('prod-html', function() {
 
 //compile all sass and autoprefix and minify
 gulp.task('prod-css', function() {
-	return sass('src/css/main.scss', {
+	return sass('src/css/prod.scss', {
 			style: 'expanded', 
 			compass: true
 		})
 		.pipe(autoprefixer({browsers: ['last 2 version'], cascade: false}))
 		.pipe(cmq({ log: true }))
 		.pipe(minifycss())
+		.pipe(rename('main.css'))
 		.pipe(gulp.dest('.tmp/css'))	
 });
 
