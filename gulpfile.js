@@ -116,7 +116,7 @@ gulp.task('prod-css', function() {
 		.pipe(autoprefixer({browsers: ['last 2 version'], cascade: false}))
 		.pipe(cmq({ log: true }))
 		.pipe(minifycss())
-		.pipe(gulp.dest('.tmp/css'))
+		.pipe(gulp.dest('.tmp/css'))	
 });
 
 //jshint and uglify js files
