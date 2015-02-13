@@ -9,7 +9,7 @@ var minifycss = require('gulp-minify-css');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var smoosher = require('gulp-smoosher');
-
+var cmq = require('gulp-combine-media-queries');
 
 /* --------- */
 /* DEV TASKS */
@@ -42,12 +42,14 @@ gulp.task('browser-sync', function() {
 // Sass task, will run when any SCSS files change & BrowserSync
 // will auto-update browsers
 gulp.task('sass', function () {
-    return gulp.src('src/css/main.scss')
-        .pipe(sass({ style: 'expanded', compass: true}))        
-        .on('error', handleErrors)
-        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'ios 6', 'android 4'))
-        .pipe(gulp.dest('src/css'))
-        .pipe(browserSync.reload({stream: true}));
+    return sass('src/css/main.scss', {
+			style: 'expanded', 
+			compass: true
+		})
+		.on('error', handleErrors)
+		.pipe(autoprefixer(browsers: ['last 2 version'], cascade: false))
+		.pipe(gulp.dest('src/css'))
+		.pipe(browserSync.reload({stream:true}));
 });
 
 var handleErrors = function() {
@@ -107,11 +109,14 @@ gulp.task('prod-html', function() {
 
 //compile all sass and autoprefix and minify
 gulp.task('prod-css', function() {
-	return gulp.src('src/css/main.scss')
-		.pipe(sass({ style: 'expanded', compass: true }))
-		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+	return sass('src/css/main.scss', {
+			style: 'expanded', 
+			compass: true
+		})
+		.pipe(autoprefixer({browsers: ['last 2 version'], cascade: false}))
+		.pipe(cmq({ log: true }))
 		.pipe(minifycss())
-		.pipe(gulp.dest('.tmp/css'));
+		.pipe(gulp.dest('.tmp/css'))
 });
 
 //jshint and uglify js files
