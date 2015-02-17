@@ -48,7 +48,7 @@ gulp.task('sass', function () {
 			compass: true
 		})
 		.on('error', handleErrors)
-		.pipe(autoprefixer({browsers: ['last 2 version'], cascade: false}))
+		.pipe(autoprefixer())
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest('src/css'))
 		.pipe(browserSync.reload({stream:true}));
@@ -115,7 +115,7 @@ gulp.task('prod-css', function() {
 			style: 'expanded', 
 			compass: true
 		})
-		.pipe(autoprefixer({browsers: ['last 2 version'], cascade: false}))
+		.pipe(autoprefixer())
 		.pipe(cmq({ log: true }))
 		.pipe(minifycss())
 		.pipe(rename('main.css'))
