@@ -7,7 +7,7 @@ var rename = require('gulp-rename');
 
 //compile all sass and autoprefix and minify
 gulp.task('prod-css', function() {
-	gulp.src('srcs/css/prod.scss')
+	gulp.src('src/css/prod.scss')
         .pipe(sass())
 		.pipe(autoprefixer())
 		.pipe(cmq({ log: true }))
