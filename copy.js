@@ -4,7 +4,7 @@ var fs = require('fs');
 
 // GOOGLE DOC ID GOES HERE
 var id = '';
-var sheet = 'https://docs.google.com/document/d/' + id + '/export?format=txt';
+var url = 'https://docs.google.com/document/d/' + id + '/export?format=txt';
 
 if(id) {
 	request(url, function (error, response, body) {
