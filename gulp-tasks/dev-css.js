@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var stylus = require('gulp-stylus');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync');
@@ -8,7 +8,7 @@ var browserSync = require('browser-sync');
 // will auto-update browsers
 gulp.task('dev-css', function () {
 	gulp.src('src/css/dev.scss')
-        .pipe(sass())
+        .pipe(stylus())
 		.pipe(autoprefixer())
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest('src/css'))

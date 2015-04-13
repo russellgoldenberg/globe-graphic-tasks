@@ -1,3 +1,3 @@
-# Globe iframe graphic tasks
+# Globe graphic tasks
 
-To be used with [globe iframe graphic](https://github.com/russellgoldenberg/globe-iframe-graphic).
+To be used with [globe graphic template](https://github.com/russellgoldenberg/globe-graphic-template).
