@@ -4,10 +4,10 @@ var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var browserSync = require('browser-sync');
 
-// Sass task, will run when any SCSS files change & BrowserSync
+// Sass task, will run when any styl files change & BrowserSync
 // will auto-update browsers
 gulp.task('dev-css', function () {
-	gulp.src('src/css/dev.scss')
+	gulp.src('src/css/dev.styl')
         .pipe(stylus())
 		.pipe(autoprefixer())
 		.pipe(rename('main.css'))

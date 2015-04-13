@@ -4,9 +4,9 @@ var minifycss = require('gulp-minify-css');
 var cmq = require('gulp-combine-media-queries');
 var rename = require('gulp-rename');
 
-//compile all sass and autoprefix and minify
+//compile all styl and autoprefix and minify
 gulp.task('prod-css', function() {
-	gulp.src('src/css/prod.scss')
+	gulp.src('src/css/prod.styl')
         .pipe(stylus())
 		.pipe(autoprefixer())
 		.pipe(cmq({ log: true }))
