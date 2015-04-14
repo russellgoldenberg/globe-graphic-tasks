@@ -4,7 +4,7 @@ var rename = require('gulp-rename');
 var browserSync = require('browser-sync');
 var fs = require('fs');
 
-gulp.task('dev-copy', function() {
+gulp.task('copy-dev', function() {
 
 	filesExist(function(err) {
 		if(err) {

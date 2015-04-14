@@ -1,9 +1,9 @@
 {
   "name": "globe-iframe-graphic-tasks",
   "version": "0.0.2",
-  "description": "Tasks for globe iframe graphic",
+  "description": "Tasks for globe graphic template",
   "author": "russell goldenberg",
-  "homepage": "https://github.com/russellgoldenberg/globe-iframe-graphic-tasks",
+  "homepage": "https://github.com/russellgoldenberg/globe-graphic-tasks",
   "dependencies": {
     "archieml": "^0.1.2",
     "browser-sync": "^2.0.1",
@@ -12,6 +12,7 @@
     "gulp-autoprefixer": "^2.1.0",
     "gulp-changed": "^1.2.1",
     "gulp-combine-media-queries": "^0.2.0",
+    "gulp-file-include": "^0.8.0",
     "gulp-jshint": "^1.9.2",
     "gulp-minify-css": "^0.4.5",
     "gulp-rename": "^1.2.0",
