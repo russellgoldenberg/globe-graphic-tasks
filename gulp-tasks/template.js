@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var handlebars = require('gulp-static-handlebars');
-var rename = require('gulp-rename');
 var browserSync = require('browser-sync');
+var rename = require('gulp-rename');
 var fs = require('fs');
 
 var srcCopy = 'src/data/copy.json';
@@ -21,8 +21,7 @@ gulp.task('template-dev', function() {
 				partials: gulp.src('src/partials/*.hbs')
 			}))
 			.pipe(rename('index.html'))
-			.pipe(gulp.dest('src/html'))
-			.pipe(browserSync.reload({stream:true}));
+			.pipe(gulp.dest('src/html'));
 		}
 	});
 });
@@ -41,8 +40,7 @@ gulp.task('template-prod', function() {
 				partials: gulp.src('src/partials/*.hbs')
 			}))
 			.pipe(rename('index.html'))
-			.pipe(gulp.dest('src/html'))
-			.pipe(browserSync.reload({stream:true}));
+			.pipe(gulp.dest('src/html'));
 		}
 	});
 });
