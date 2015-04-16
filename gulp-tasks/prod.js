@@ -10,6 +10,6 @@ gulp.task('prod', function() {
 	 	'css-prod',
 		'js-prod',
 		'smoosh-prod',
-		'media-prod'
+		'assets-prod'
 	);
 });
