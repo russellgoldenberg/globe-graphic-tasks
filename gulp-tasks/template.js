@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var handlebars = require('gulp-static-handlebars');
-var rename = require('rename');
+var rename = require('gulp-rename');
 var browserSync = require('browser-sync');
 var fs = require('fs');
 
