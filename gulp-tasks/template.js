@@ -31,7 +31,7 @@ gulp.task('template-dev', function(cb) {
 	});
 });
 
-gulp.task('template-prod', function() {
+gulp.task('template-prod', function(cb) {
 
 	filesExist(function(err) {
 		if(err) {
