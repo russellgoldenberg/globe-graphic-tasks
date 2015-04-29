@@ -5,7 +5,6 @@ var runSequence = require('run-sequence');
 gulp.task('prod', function() {
 	runSequence(
 		'clean-prod',
-		'template-prod',
 		'html-prod',
 	 	'css-prod',
 		'js-prod',
