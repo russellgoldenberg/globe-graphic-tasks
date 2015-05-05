@@ -19,7 +19,7 @@ gulp.task('html-dev', function(cb) {
 
 			gulp.src(srcIndex)
 			.pipe(handlebars(data, {
-				partials: gulp.src('src/html/partials/*.hbs')
+				partials: gulp.src('src/html/partials/**/*.hbs')
 			}))
 			.pipe(rename('index.html'))
 			.pipe(gulp.dest('src'))
@@ -42,7 +42,7 @@ gulp.task('html-prod', function(cb) {
 
 			gulp.src(srcIndex)
 			.pipe(handlebars(data, {
-				partials: gulp.src('src/html/partials/*.hbs')
+				partials: gulp.src('src/html/partials/**/*.hbs')
 			}))
 			.pipe(rename('index.html'))
 			.pipe(gulp.dest('prod'))
