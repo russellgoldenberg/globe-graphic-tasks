@@ -45,7 +45,7 @@ gulp.task('html-prod', function(cb) {
 				partials: gulp.src('src/html/partials/**/*.hbs')
 			}))
 			.pipe(rename('index.html'))
-			.pipe(gulp.dest('prod'))
+			.pipe(gulp.dest('.tmp'))
 			.pipe(gcallback(function() {
     			cb();
 			}));
