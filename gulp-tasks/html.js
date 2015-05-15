@@ -9,9 +9,8 @@ var srcIndex = 'src/html/index.hbs';
 
 gulp.task('html-dev', function(cb) {
 
-	filesExist(function(err) {
+	handlebarsExists(function(err) {
 		if(err) {
-			console.log(err);
 			cb();
 		} else {
 			var data = fs.readFileSync(srcCopy, {encoding: 'utf8'});
@@ -32,9 +31,8 @@ gulp.task('html-dev', function(cb) {
 
 gulp.task('html-prod', function(cb) {
 
-	filesExist(function(err) {
+	handlebarsExists(function(err) {
 		if(err) {
-			console.log(err);
 			cb();
 		} else {
 			var data = fs.readFileSync(srcCopy, {encoding: 'utf8'});
@@ -53,14 +51,12 @@ gulp.task('html-prod', function(cb) {
 	});
 });
 
-var filesExist = function(cb) {
-	fs.stat(srcCopy, function(err, file) {
-		if(!err) {
-			fs.stat(srcIndex, function(err, file) {
-				cb();
-			});
+var handlebarsExists = function(cb) {
+	fs.stat(srcIndex, function(err, file) {
+		if(!err && file) {
+			cb();
 		} else {
-			cb('*** No data file exists: src/data/copy.json ***');
+			cb('No hbs file exists: src/html/index.hbs');
 		}
 	});
 };
