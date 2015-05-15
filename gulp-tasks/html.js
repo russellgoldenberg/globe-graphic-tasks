@@ -33,7 +33,11 @@ gulp.task('html-prod', function(cb) {
 
 	handlebarsExists(function(err) {
 		if(err) {
-			cb();
+			gulp.src('src/index.html')
+			.pipe(gulp.dest('.tmp'))
+			.pipe(gcallback(function() {
+    			cb();
+			}));
 		} else {
 			var data = fs.readFileSync(srcCopy, {encoding: 'utf8'});
 			data = JSON.parse(data);
