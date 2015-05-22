@@ -5,10 +5,14 @@ var rename = require('gulp-rename');
 var cmq = require('gulp-combine-media-queries');
 var minifycss = require('gulp-minify-css');
 var browserSync = require('browser-sync');
+var plumber = require('gulp-plumber');
 
 //compile styl to css and autoprefix
 gulp.task('css-dev', function () {
 	gulp.src('src/css/dev.styl')
+		.pipe(plumber({
+	        errorHandler: function (err) { console.log(err); this.emit('end'); }
+	    }))
         .pipe(stylus())
 		.pipe(autoprefixer())
 		.pipe(rename('main.css'))
