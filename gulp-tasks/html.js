@@ -1,8 +1,15 @@
 var gulp = require('gulp');
-var handlebars = require('gulp-static-handlebars');
+var hb = require('gulp-hb');
 var rename = require('gulp-rename');
 var gcallback = require('gulp-callback');
 var fs = require('fs');
+
+var argv = require('minimist')(process.argv.slice(2));
+
+var select = 'dining-out';
+if(argv.select) {
+	select = argv.select;
+}
 
 var srcCopy = 'src/data/copy.json';
 var srcIndex = 'src/html/index.hbs';
@@ -13,13 +20,16 @@ gulp.task('html-dev', function(cb) {
 		if(err) {
 			cb();
 		} else {
-			var data = fs.readFileSync(srcCopy, {encoding: 'utf8'});
-			data = JSON.parse(data);
-
+			// if you need to select a subset of data based on command line arg
+			// var data = fs.readFileSync(srcCopy, {encoding: 'utf8'});
+			// data = JSON.parse(data);
 			gulp.src(srcIndex)
-			.pipe(handlebars(data, {
-				partials: gulp.src('src/html/partials/**/*.hbs')
-			}))
+			 .pipe(hb({
+	            data: 'src/data/*.{json}',
+	            helpers: 'src/html/helpers/*.js',
+	            partials: 'src/html/partials/**/*.hbs',
+	            debug: false
+	        }))
 			.pipe(rename('index.html'))
 			.pipe(gulp.dest('src'))
 			.pipe(gcallback(function() {
@@ -39,13 +49,14 @@ gulp.task('html-prod', function(cb) {
     			cb();
 			}));
 		} else {
-			var data = fs.readFileSync(srcCopy, {encoding: 'utf8'});
-			data = JSON.parse(data);
 
 			gulp.src(srcIndex)
-			.pipe(handlebars(data, {
-				partials: gulp.src('src/html/partials/**/*.hbs')
-			}))
+			 .pipe(hb({
+	            data: 'src/data/*.{json}',
+	            helpers: 'src/html/helpers/*.js',
+	            partials: 'src/html/partials/**/*.hbs',
+	            debug: false
+	        }))
 			.pipe(rename('index.html'))
 			.pipe(gulp.dest('.tmp'))
 			.pipe(gcallback(function() {
