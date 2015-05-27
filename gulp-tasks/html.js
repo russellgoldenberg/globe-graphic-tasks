@@ -22,7 +22,7 @@ gulp.task('html-dev', function(cb) {
 			        errorHandler: function (err) { console.log(err); this.emit('end'); }
 			    }))	
 				 .pipe(hb({
-		            data: 'src/data/*.{json}',
+		            data: 'src/data/*.json',
 		            helpers: 'src/html/helpers/*.js',
 		            partials: 'src/html/partials/**/*.hbs',
 		            debug: false
@@ -49,7 +49,7 @@ gulp.task('html-prod', function(cb) {
 
 			gulp.src(srcIndex)
 				.pipe(hb({
-					data: 'src/data/*.{json}',
+					data: 'src/data/*.json',
 					helpers: 'src/html/helpers/*.js',
 					partials: 'src/html/partials/**/*.hbs',
 					debug: false
