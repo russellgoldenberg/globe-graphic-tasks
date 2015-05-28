@@ -25,6 +25,7 @@ gulp.task('html-dev', function(cb) {
 		            data: 'src/data/*.json',
 		            helpers: 'src/html/helpers/*.js',
 		            partials: 'src/html/partials/**/*.hbs',
+		            bustCache: true,
 		            debug: false
 		        }))
 				.pipe(rename('index.html'))
@@ -52,6 +53,7 @@ gulp.task('html-prod', function(cb) {
 					data: 'src/data/*.json',
 					helpers: 'src/html/helpers/*.js',
 					partials: 'src/html/partials/**/*.hbs',
+					bustCache: true,
 					debug: false
 				}))
 				.pipe(rename('index.html'))
