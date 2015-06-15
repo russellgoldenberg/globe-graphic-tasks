@@ -1,6 +1,5 @@
 .DS_Store
-deploy.txt
 node_modules
-npm-debug.log
 .tmp
 prod
+src/css/main.css
