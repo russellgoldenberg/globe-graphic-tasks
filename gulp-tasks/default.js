@@ -8,7 +8,7 @@ gulp.task('default', ['dev'], function () {
     gulp.watch('src/html/**/*.hbs', ['html-dev']);
     gulp.watch('src/index.html', ['browser-sync-reload']);
     gulp.watch('src/assets/**/*', ['browser-sync-reload']);
-    gulp.watch('src/js/*.js', ['browser-sync-reload']);
+    gulp.watch('src/js/**/*.js', ['browser-sync-reload']);
 });
 
 gulp.task('dev', function() {
