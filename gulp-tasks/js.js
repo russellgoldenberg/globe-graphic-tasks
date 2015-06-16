@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
+var browserSync = require('browser-sync');
 
 gulp.task('js-dev', function() {
 	return gulp.src('src/js/**/*.js')

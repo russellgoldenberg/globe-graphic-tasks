@@ -6,8 +6,7 @@ var src = 'src/assets/**/*';
 gulp.task('assets-dev', function() {
 	return gulp.src(src)
 		.pipe(changed('dev/assets'))
-		.pipe(gulp.dest('dev/assets'))
-		.pipe(browserSync.reload({stream:true}));
+		.pipe(gulp.dest('dev/assets'));
 });
 
 // move assets files to prod folder
@@ -16,4 +15,3 @@ gulp.task('assets-prod', function() {
 		.pipe(changed('prod/assets'))
 		.pipe(gulp.dest('prod/assets'));
 });
-
