@@ -29,7 +29,7 @@ gulp.task('html-dev', function(cb) {
 		            debug: false
 		        }))
 				.pipe(rename('index.html'))
-				.pipe(gulp.dest('src'))
+				.pipe(gulp.dest('dev'))
 				.pipe(gcallback(function() {
 	    			cb();
 				}));

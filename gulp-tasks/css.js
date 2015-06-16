@@ -16,7 +16,7 @@ gulp.task('css-dev', function () {
         .pipe(stylus())
 		.pipe(autoprefixer())
 		.pipe(rename('main.css'))
-		.pipe(gulp.dest('src/css'))
+		.pipe(gulp.dest('dev/css'))
 		.pipe(browserSync.reload({stream:true}));
 });
 

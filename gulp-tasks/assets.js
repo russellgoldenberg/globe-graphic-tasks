@@ -3,6 +3,13 @@ var changed = require('gulp-changed');
 
 var src = 'src/assets/**/*';
 
+gulp.task('assets-dev', function() {
+	return gulp.src(src)
+		.pipe(changed('dev/assets'))
+		.pipe(gulp.dest('dev/assets'))
+		.pipe(browserSync.reload({stream:true}));
+});
+
 // move assets files to prod folder
 gulp.task('assets-prod', function() {
 	return gulp.src(src)
