@@ -8,5 +8,5 @@ gulp.task('clean-dev', function(cb) {
 
 //clear all prod folders and tmp dir
 gulp.task('clean-prod', function(cb) {
-	del(['.tmp/**', 'prod/**'], cb);
+	del(['.tmp/**', 'dist/prod/**'], cb);
 });
