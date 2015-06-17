@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
 .tmp
-prod
-dev
+dist
 ssh-config.js
